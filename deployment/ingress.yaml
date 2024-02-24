@@ -1,0 +1,24 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: specter1591-web
+  namespace: specter1591-web
+  labels:
+    app: specter1591-web
+  annotations:
+    kubernetes.io/ingress.provider: traefik
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: web.specter1591.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: specter1591-web-svc
+                port:
+                  number: 80
+status:
+  loadBalancer: {}

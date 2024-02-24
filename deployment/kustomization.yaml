@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- namespace.yaml
+- deployment.yaml
+- secret.yaml
+- ingress.yaml
+- service.yaml
+namespace: specter1591-web
+images:
+- name: registry.specter1591.com/specter1591/web/main
+  newTag: c9d7b23cb3961012c18051e90f696a8daa0ef290

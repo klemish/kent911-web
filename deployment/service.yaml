@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: specter1591-web-svc
+  namespace: specter1591-web
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+  selector:
+    app: specter1591-web

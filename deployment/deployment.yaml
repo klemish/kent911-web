@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: specter1591-web
+  name: specter1591-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: specter1591-web
+  template:
+    metadata:
+      labels:
+        app: specter1591-web
+    spec:
+      # nodeSelector:
+        # kubernetes.io/arch: amd64
+      imagePullSecrets:
+        - name: registry-credentials
+      containers:
+        - image: registry.specter1591.com/specter1591/web/main:latest
+          name: specter1591-web
+          imagePullPolicy: IfNotPresent
